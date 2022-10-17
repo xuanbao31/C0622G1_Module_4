@@ -5,11 +5,9 @@ import com.model.Email;
 import java.util.List;
 
 public interface IEmailService {
-    List<String> findAllLanguages();
-    List<Integer> findAllPageSize();
-    List<Email> findAllEmail();
-    void update(Email email);
-    Email findById(int id);
+    List<String> language();
+    List<Integer> pageSize();
+    List<String> spamsFilter();
 
 
 }

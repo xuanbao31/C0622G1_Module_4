@@ -7,52 +7,39 @@ import java.util.List;
 
 public class EmailRepository implements IEmailRepository {
 
-private static List<String> languages=new ArrayList<>();
-private static List<Integer> pageSize=new ArrayList<>();
-private static List<Email> emailList=new ArrayList<>();
+    private static List<String> languageList = new ArrayList<>();
+    private static List<Integer> pageSizeList = new ArrayList<>();
+    private static List<String> spamsFilterList = new ArrayList<>();
 
 
-static {
-    languages.add("English");
-    languages.add("Vietnamese");
-    languages.add("Japanese");
-    languages.add("Korean");
+    static {
+        languageList.add("English");
+        languageList.add("Vietnamese");
+        languageList.add("Japanese");
+        languageList.add("Chinese");
 
-    pageSize.add(5);
-    pageSize.add(10);
-    pageSize.add(15);
-    pageSize.add(25);
-    pageSize.add(50);
-    pageSize.add(100);
+        pageSizeList.add(5);
+        pageSizeList.add(10);
+        pageSizeList.add(25);
+        pageSizeList.add(50);
+        pageSizeList.add(100);
 
-    emailList.add(new Email(1,"English",5,true,"CCC"));
-    emailList.add(new Email(2,"Japanese",50,false,"AAA"));
-    emailList.add(new Email(3,"Vietnamese",15,true,"VVV"));
-    emailList.add(new Email(4,"Korean",25,false,"BBB"));
-}
-
-    @Override
-    public List<String> findAllLanguages() {
-        return languages;
-    }
-
-    @Override
-    public List<Integer> findAllPageSize() {
-        return pageSize;
-    }
-
-    @Override
-    public List<Email> findAllEmail() {
-        return emailList;
-    }
-
-    @Override
-    public void update(Email email) {
+        spamsFilterList.add("Enable spams filter");
 
     }
 
     @Override
-    public Email findById(int id) {
-        return null;
+    public List<String> language() {
+        return languageList;
+    }
+
+    @Override
+    public List<Integer> pageSize() {
+        return pageSizeList;
+    }
+
+    @Override
+    public List<String> spamsFilter() {
+        return spamsFilterList;
     }
 }

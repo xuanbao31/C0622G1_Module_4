@@ -1,37 +1,27 @@
 package com.model;
 
 public class Email {
-    public int id;
-    private String language;
-    private Integer pageSize ;
-    private Boolean spamsFilter;
-    private String signature;
+    private String languages;
+    private Integer pageSize;
+    private String spamsFilter;
+    private String  signature;
 
     public Email() {
     }
 
-    public Email(int id, String language, Integer pageSize, Boolean spamsFilter, String signature) {
-        this.id = id;
-        this.language = language;
+    public Email(String languages, Integer pageSize, String spamsFilter, String signature) {
+        this.languages = languages;
         this.pageSize = pageSize;
         this.spamsFilter = spamsFilter;
         this.signature = signature;
     }
 
-    public int getId() {
-        return id;
+    public String getLanguages() {
+        return languages;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLanguages(String languages) {
+        this.languages = languages;
     }
 
     public Integer getPageSize() {
@@ -42,11 +32,11 @@ public class Email {
         this.pageSize = pageSize;
     }
 
-    public Boolean getSpamsFilter() {
+    public String getSpamsFilter() {
         return spamsFilter;
     }
 
-    public void setSpamsFilter(Boolean spamsFilter) {
+    public void setSpamsFilter(String spamsFilter) {
         this.spamsFilter = spamsFilter;
     }
 
@@ -57,5 +47,4 @@ public class Email {
     public void setSignature(String signature) {
         this.signature = signature;
     }
-
 }
