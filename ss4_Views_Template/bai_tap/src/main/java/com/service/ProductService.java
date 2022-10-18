@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 @Service
 public class ProductService implements IProductService {
     private static Map<Integer, Product> productMap = new HashMap<>();
@@ -25,6 +26,21 @@ public class ProductService implements IProductService {
 
     @Override
     public void save(Product product) {
-        productMap.put(product.getId(),product);
+        productMap.put(product.getId(), product);
+    }
+
+    @Override
+    public void remove(int id) {
+        productMap.remove(id);
+    }
+
+    @Override
+    public Product findById(int id) {
+        return productMap.get(id);
+    }
+
+    @Override
+    public void update(int id, Product product) {
+        productMap.put(id, product);
     }
 }

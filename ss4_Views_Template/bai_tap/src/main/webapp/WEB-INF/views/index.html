@@ -27,6 +27,8 @@
         <td th:text="${list.getDate()}"></td>
         <td th:text="${list.getPrice()}"></td>
         <td th:text="${list.getFeedBack()}"></td>
+        <td><a th:href="@{/{id}/delete(id=${list.getId()})}">delete</a></td>
+        <td><a th:href="@{/{id}/update(id=${list.getId()})}">update</a></td>
     </tr>
     </tbody>
 

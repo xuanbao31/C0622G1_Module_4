@@ -6,9 +6,7 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,4 +37,26 @@ public class ProductController {
            productService.save(product);
            return "redirect:/";
     }
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable int id, Model model){
+        model.addAttribute("product",productService.findById(id));
+        return "/delete";
+    }
+    @PostMapping("/delete")
+    public String delete(Product product){
+        productService.remove(product.getId());
+        return "redirect:/";
+
+    }
+    @GetMapping("{id}/update")
+    private String update(@PathVariable int id, Model model){
+        model.addAttribute("product",new Product() );
+        return "/update";
+    }
+    @PostMapping("/update")
+    private String update(Product product){
+        productService.update(product.getId(),product);
+        return "redirect:/";
+    }
+
 }
