@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Trang Chu</h2>
+<p>
+    <a th:href="@{/create}">Add to List</a>
+</p>
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Price</th>
+    <th>FeedBack</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>View</th>
+</tr>
+</thead>
+    <tbody>
+    <tr th:each="list : ${list}">
+        <td th:text="${list.getName()}"></td>
+        <td th:text="${list.getDate()}"></td>
+        <td th:text="${list.getPrice()}"></td>
+        <td th:text="${list.getFeedBack()}"></td>
+        <td><a th:href="@{/{id}/delete(id=${list.getId()})}">delete</a></td>
+        <td><a th:href="@{/{id}/update(id=${list.getId()})}">update</a></td>
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>
