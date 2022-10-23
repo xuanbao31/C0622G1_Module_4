@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<a href="/createCategory">Add to List </a>
+​<table th:unless="${category.isEmpty()}">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="customers" th:each="list: ${category}">
+        <td th:text="${list.getName()}"></td>
+        <td><a th:href="@{deleteCategory/{id}(id=${list.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

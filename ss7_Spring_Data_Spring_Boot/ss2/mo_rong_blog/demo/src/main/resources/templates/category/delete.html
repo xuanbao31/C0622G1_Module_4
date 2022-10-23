@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Trang Xoa </h2>
+<form th:action="@{deleteCategory}" method="post" th:object="${category}">
+    <table>
+        <tr>
+            <th>Name</th>
+
+        </tr>
+        <tr>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Remove"/>
+</form>
+</body>
+</html>
