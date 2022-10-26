@@ -8,9 +8,15 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int borrowCode;
+
     @ManyToOne
     @JoinColumn(name = "id_book",referencedColumnName = "id")
     private Book book;
+
+    public Order(int borrowCode, Book book) {
+        this.borrowCode = borrowCode;
+        this.book = book;
+    }
 
     public Order() {
     }
