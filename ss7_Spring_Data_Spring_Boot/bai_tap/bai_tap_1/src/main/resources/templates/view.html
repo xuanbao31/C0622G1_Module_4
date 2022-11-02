@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h2>Chao mung ban de voi trang view</h2>
+<div id="detail">
+    <div class="cusdetail">
+        <label>Ten tac gia :</label>
+        <label th:text="${categoryView.blog.name}"></label>
+    </div>
+    <div class="cusdetail">
+        <label>Ten tac Pham :</label>
+        <label th:text="${categoryView.workName}"></label>
+    </div>
+</div>
 </body>
 </html>

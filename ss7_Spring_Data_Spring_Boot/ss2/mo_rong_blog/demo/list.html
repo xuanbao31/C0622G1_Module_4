@@ -123,7 +123,7 @@
             console.log(search),
                 $("tbody").empty();
             $.ajax({
-                url: "http://localhost:8080/api/blog/search?" + "&search=" + search,
+                url: "http://localhost:8080/api/blog/search?search="+search,
                 type: "GET",
                 dataType: 'json',
                 success: function (data) {

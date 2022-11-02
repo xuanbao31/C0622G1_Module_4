@@ -14,7 +14,7 @@
 <h2>Trang Từ Điển </h2>
 <form action="/dictionary" method="post">
   Nhập từ điển ( tiếng anh)
-  <input type="text" name="a">
+  <input type="text" name="dictionary">
   <input type="submit" placeholder="Dịch">
 </form>
   <p>Kết quả là : ${result1}</p>

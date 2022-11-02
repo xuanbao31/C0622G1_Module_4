@@ -20,8 +20,8 @@ public class Dictionary {
 
 
     @PostMapping("/dictionary")
-    public String change(String a, Model model) {
-        String result = dictionaryService.change(a);
+    public String change(String dictionary, Model model) {
+        String result = dictionaryService.change(dictionary);
         model.addAttribute("result1", result);
         return "/index";
     }

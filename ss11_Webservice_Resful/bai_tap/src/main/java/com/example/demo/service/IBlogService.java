@@ -14,4 +14,5 @@ public interface IBlogService {
     void edit (Blog blog);
     Optional<Blog> findById(int id);
     List<Blog>findAll();
+//    List<Blog>searchByName(int id);
 }

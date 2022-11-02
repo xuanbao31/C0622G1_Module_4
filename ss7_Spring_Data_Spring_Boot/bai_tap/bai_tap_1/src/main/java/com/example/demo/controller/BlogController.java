@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Blog;
 import com.example.demo.service.IBlogService;
+import com.example.demo.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import java.util.Optional;
 public class BlogController {
     @Autowired
     private IBlogService blogService;
+    @Autowired
+    private ICategoryService categoryService;
 
     @GetMapping("/")
     public String showList(Model model) {
@@ -40,9 +43,9 @@ public class BlogController {
 
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable int id, Model model) {
-        Optional<Blog> blogDelete = blogService.findById(id);
-        if (blogDelete.isPresent()) {
-            model.addAttribute("blogDelete", blogDelete.get());
+       Blog  blogDelete = blogService.findById(id);
+        if (blogDelete!=null) {
+            model.addAttribute("blogDelete", blogDelete);
             return "/delete";
         } else {
             return "/error";
@@ -50,9 +53,15 @@ public class BlogController {
 
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/remove")
     public String delete(@ModelAttribute Blog blog) {
         blogService.remove(blog.getId());
         return "redirect:/";
+    }
+
+    @GetMapping("/{id}/view")
+    public String view(@PathVariable int id, Model model) {
+       model.addAttribute("categoryView",categoryService.findById(id));
+       return "/view";
     }
 }

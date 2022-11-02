@@ -45,4 +45,5 @@ public class BlogService implements IBlogService {
     public List<Blog> findAll() {
         return blogRepository.findAll();
     }
+
 }

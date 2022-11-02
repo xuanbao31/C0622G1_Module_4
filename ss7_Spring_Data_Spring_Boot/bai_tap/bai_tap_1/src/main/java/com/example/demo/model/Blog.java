@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "blog")
@@ -12,6 +13,10 @@ public class Blog {
     private String date;
     private String country;
 
+
+    @OneToMany(mappedBy = "blog")
+    private Set<Category> categories;
+
     public Blog() {
     }
 
@@ -20,6 +25,14 @@ public class Blog {
         this.name = name;
         this.date = date;
         this.country = country;
+    }
+
+    public Blog(int id, String name, String date, String country, Set<Category> categories) {
+        this.id = id;
+        this.name = name;
+        this.date = date;
+        this.country = country;
+        this.categories = categories;
     }
 
     public int getId() {
@@ -52,5 +65,13 @@ public class Blog {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }

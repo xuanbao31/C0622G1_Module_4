@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CalculateController {
     @GetMapping("/")
-public String calculate(){
+    public String calculate() {
         return "/index";
     }
 
     @PostMapping("/result")
-    public  String changeMoney(@RequestParam int usd,Model model){
+    public String changeMoney(@RequestParam int usd, Model model) {
         int result = usd * 23000;
-        model.addAttribute("result1",result);
+        model.addAttribute("result1", result);
         return "/index";
     }
 }

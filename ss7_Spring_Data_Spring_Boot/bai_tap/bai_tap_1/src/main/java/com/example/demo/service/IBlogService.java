@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface IBlogService {
     List<Blog> findAll();
     void save (Blog blog);
-    Optional<Blog> findById(int id);
+  Blog findById(int id);
     void remove(int id);
 }

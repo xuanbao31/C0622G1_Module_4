@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
 </head>
 <body>
-$END$
+<h3>Blog</h3>
+<!--<div class="notify">-->
+<!--    <div th:if="${success}">-->
+<!--        <span th:text="${success}"></span>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<p>-->
+<!--    <a th:href="@{/create}">-->
+<!--        Add New Blog-->
+<!--    </a>-->
+<!--</p>-->
+​<a href="/create">Add to List </a>
+<h2 th:if="${list.isEmpty()}" style="color: red">
+    No Blog List</h2>
+<table id="customers" th:unless="${list.isEmpty()}">
+    <thead>
+    <tr>
+        <th>FirstName</th>
+        <th>LastName </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="list : ${list}">
+        <td th:text="${list.getFirstName()}"></td>
+        <td th:text="${list.getLastName()}"></td>
+<!--        <td><a th:href="@{{id}/edit(id=${blog.id})}">Edit</a></td>-->
+<!--        <td><a th:href="@{{id}/delete(id=${blog.id})}">Delete</a></td>-->
+<!--        <td><a th:href="@{view/{id}(id=${blog.id})}">View</a></td>-->
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
